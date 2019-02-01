@@ -27,7 +27,11 @@ let config = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [{ loader: MiniCssExtractPlugin.loader}, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader}, 'css-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,

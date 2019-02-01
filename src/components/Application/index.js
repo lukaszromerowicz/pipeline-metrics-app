@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Tile, { TileLoader } from '../Tile'
+import { API_URL } from '../../config'
 
 const fetchApplication = async (id, setApplication, setLoading) => {
     try{
-        let response = await axios.get('http://localhost:2000/applications/' + id)
+        let response = await axios.get(`${API_URL}/applications/${id}`)
         const application = response.data
         setApplication(application)
         setLoading(false)
     }catch (error) {
-        console.log('who cares')
+        console.log('ERROR:', error)
     }
 }
 
